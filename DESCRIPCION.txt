@@ -1,0 +1,8 @@
+
+El Script permite realizar regresión con los modelos: perceptron multicapa, random Forest y Conditional Forest; los cuales se pueden emplear con bases de datos que contengan variables de cualquier escala; la regresión lineal solo aplica para bases de datos con variables cuantitativas. El proceso de entrenamiento de los modelos se realiza utilizando validación cruzada con 100 réplicas para obtener resultados más robustos; en la red neuronal se utiliza una optimización con el fin de estimar las neuronas en la capa oculta y parámetro de decadencia. Los resultados permiten determinar tanto la relevancia de las variables de entrada, como las relaciones que podría esperar entre ellas y el rendimiento.
+
+El script fue creado bajo la versión de R-3.1.2 y ejecutado desde la interfaz gráfica de R studio 0.98.1091.
+
+Para mayor información o sugerencias puede escribir a h.a.dorado@ciat.cgiar.org
+
+Creado por el grupo de BIG-DATA agricultura específica por sitio (AEPS), Centro Internacional de Agricultura Tropical (CIAT);  ciat.cgiar.org

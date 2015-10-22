@@ -25,6 +25,10 @@ require(party)
 require(randomForest)
 require(snowfall)
 require(earth)
+require(agricolae)
+require(cowplot)
+require(reshape)
+require(stringr)
 
 #Load functions; Open  All-Functions-AEPS_BD.RData
 

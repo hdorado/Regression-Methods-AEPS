@@ -2,19 +2,12 @@
 
 
 ---
-title: "Metodos de regresión Big Data AEPS"
-author: "Centro Internacional de Agricultura Trópical grupo de Big-Data AEPS"
-date: "24/02/2015"
-output: pdf_document
+#Metodos de regresión Big Data AEPS
+## Centro Internacional de Agricultura Trópical grupo de Big-Data AEPS
+###24/02/2015"
+
 ---
 
-
-```{r fig.width=8.3, fig.height=2,echo=FALSE}
-library(png)
-library(grid)
-img <- readPNG("images/Logo_AEPS.png")
- grid.raster(img,just = "right")
-```
 
  
 ## Introducción

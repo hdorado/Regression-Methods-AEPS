@@ -87,14 +87,14 @@ multilayerPerceptronFun("All",dirLocation=paste0(getwd(),"/"),nb.it=30,ylabs="Yi
 
 #CONDITIONAL FOREST; especify if you have categorical variables
 
-conditionalForestFun("All",nb.it=30, ncores= 3,saveWS=F,ylabs="Yield (Kg/HA)")
+conditionalForestFun("All",nb.it=30, ncores= 3,saveWS=F)
 
 #RANDOM FOREST
 
-randomForestFun("All",nb.it=30,ncores = 3,saveWS=F,ylabs="Yield (Kg/HA)")
+randomForestFun("All",nb.it=30,ncores = 3,saveWS=F)
 
 #GENERALIZED BOOSTED REGRESSION MODELING 
 
-boostingFun("All",nb.it=30,ncores=3,saveWS=F,ylabs="Yield (Kg/HA)")
+boostingFun("All",nb.it=30,ncores=3,saveWS=F)
 
 

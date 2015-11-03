@@ -29,6 +29,8 @@ require(agricolae)
 require(cowplot)
 require(reshape)
 require(stringr)
+require(gbm)
+require(plyr)
 
 #Load functions; Open  All-Functions-AEPS_BD.RData
 
@@ -44,14 +46,15 @@ setwd(dirFol)
 
 datNam  <- "BASE_PROCESADA.csv"
 
+dataSet   <- read.csv(datNam,row.names=1)
+
+namsDataSet <- names(dataSet)
+
 
 inputs  <- 1:16   #inputs columns
 segme   <- 17      #split column
 output  <- 18     #output column
 
-dataSet   <- read.csv(datNam,row.names=1)
-
-namsDataSet <- names(dataSet)
 
 #Creating the split factors
 
@@ -84,13 +87,14 @@ multilayerPerceptronFun("All",dirLocation=paste0(getwd(),"/"),nb.it=30,ylabs="Yi
 
 #CONDITIONAL FOREST; especify if you have categorical variables
 
-conditionalForestFun("All",nb.it=30, ncores= 3,saveWS=F)
+conditionalForestFun("All",nb.it=30, ncores= 3,saveWS=F,ylabs="Yield (Kg/HA)")
 
 #RANDOM FOREST
 
-randomForestFun("All",nb.it=30,ncores = 3,saveWS=F)
+randomForestFun("All",nb.it=30,ncores = 3,saveWS=F,ylabs="Yield (Kg/HA)")
 
+#GENERALIZED BOOSTED REGRESSION MODELING 
 
-
+boostingFun("All",nb.it=30,ncores=3,saveWS=F,ylabs="Yield (Kg/HA)")
 
 

@@ -71,7 +71,7 @@ createFolders(dirFol,variety)
 
 #Descriptive Analysis
 
-descriptiveGraphics("All",dataSet,inputs = inputs,segme = segme,output = output,smooth=T,ylabel = "Rendimiento (kg/ha)",smoothInd = NULL,ghrp="box")
+descriptiveGraphics("All",dataSet,inputs = inputs,segme = segme,output = output,smooth=T,ylabel = "Rendimiento (kg/ha)",smoothInd = NULL,ghrp="box",res=80)
 
 #DataSets ProcesosF
 

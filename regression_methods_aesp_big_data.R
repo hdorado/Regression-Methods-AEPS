@@ -31,29 +31,40 @@ require(reshape)
 require(stringr)
 require(gbm)
 require(plyr)
+library(gridExtra)
 
 #Load functions; Open  All-Functions-AEPS_BD.RData
-
+load("/mnt/workspace_cluster_6/TRANSVERSAL_PROJECTS/MADR/COMPONENTE_2/OPEN_BIGDATA_AEPS/REGRESSION_MODELS/All-Functions-AEPS_BD.RData")
 load("//dapadfs/workspace_cluster_6/TRANSVERSAL_PROJECTS/MADR/COMPONENTE_2/OPEN_BIGDATA_AEPS/REGRESSION_MODELS/All-Functions-AEPS_BD.RData")
+source("//dapadfs/workspace_cluster_6/TRANSVERSAL_PROJECTS/MADR/COMPONENTE_2/PUBLICACIONES/2015_Rice_Paper/SCRIPTS/cForestFunAll_400Samples.R")
+source("/mnt/workspace_cluster_6/TRANSVERSAL_PROJECTS/MADR/COMPONENTE_2/PUBLICACIONES/2015_Rice_Paper/SCRIPTS/cForestFunAll_400Samples.R")
 
 #Work Directory
 
-dirFol  <- "D:/Tobackup/Documents/HUGO_ANDRES_FILES/PRUEBA_CODIGO_INDEPENDIENTE"
+dirFol  <- "//dapadfs/workspace_cluster_6/TRANSVERSAL_PROJECTS/MADR/COMPONENTE_2/PUBLICACIONES/2015_Rice_Paper/NUEVO_CASO_SALDANA"
+dirFol  <- "/mnt/workspace_cluster_6/TRANSVERSAL_PROJECTS/MADR/COMPONENTE_2/PUBLICACIONES/2015_Rice_Paper/NUEVO_CASO_SALDANA"
+
 
 setwd(dirFol)
 
 #DataBase structure
 
-datNam  <- "BASE_PROCESADA.csv"
+datNam  <- "base_saldania_indicadores.csv"
 
-dataSet   <- read.csv(datNam,row.names=1)
+dataSet0   <- read.csv(datNam,row.names=1)
+
+dataSet <- dataSet0[,c(11:37,38,8)]
+
+head(dataSet)
+
+names(dataSet)
 
 namsDataSet <- names(dataSet)
 
 
-inputs  <- 1:16   #inputs columns
-segme   <- 17      #split column
-output  <- 18     #output column
+inputs  <- 1:27   #inputs columns
+segme   <- 28      #split column
+output  <- 29     #output column
 
 
 #Creating the split factors
@@ -70,8 +81,8 @@ if(length(variety0)==0){variety = variety0 }else{variety = factor(c(variety0,"Al
 createFolders(dirFol,variety)
 
 #Descriptive Analysis
-
-descriptiveGraphics("All",dataSet,inputs = inputs,segme = segme,output = output,smooth=T,ylabel = "Rendimiento (kg/ha)",smoothInd = NULL,ghrp="box",res=80)
+for(var in variety)
+descriptiveGraphics(var,dataSet,inputs = inputs,segme = segme,output = output,smooth=T,ylabel = "Rendimiento (kg/ha)",smoothInd = NULL,ghrp="box",res=80)
 
 #DataSets ProcesosF
 
@@ -87,7 +98,7 @@ multilayerPerceptronFun("All",dirLocation=paste0(getwd(),"/"),nb.it=30,ylabs="Yi
 
 #CONDITIONAL FOREST; especify if you have categorical variables
 
-conditionalForestFun("All",nb.it=30, ncores= 3,saveWS=F)
+conditionalForestFun("F60",nb.it=100, ncores= 23,saveWS=T)
 
 #RANDOM FOREST
 

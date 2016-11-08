@@ -19,6 +19,7 @@
 rm(list=ls())
 require(gtools)
 require(gridBase)
+require(gridExtra)
 require(relaimpo)
 require(caret)
 require(party)
@@ -34,26 +35,26 @@ require(plyr)
 
 #Load functions; Open  All-Functions-AEPS_BD.RData
 
-load("//dapadfs/workspace_cluster_6/TRANSVERSAL_PROJECTS/MADR/COMPONENTE_2/OPEN_BIGDATA_AEPS/REGRESSION_MODELS/All-Functions-AEPS_BD.RData")
+load("D:/Tobackup/Documents/Mis funciones en R/All-Functions-AEPS_BD.RData")
 
 #Work Directory
 
-dirFol  <- "/mnt/workspace_cluster_6/TRANSVERSAL_PROJECTS/MADR/COMPONENTE_2/FEDEARROZ/FEDEARROZ_SALDANA/MANEJO_SUELO_PURISAL/cLIMA/VariedadParticion/"
+dirFol <- "D:/Tobackup/Documents/HUGO_ANDRES_FILES/PRUEBA_CODIGO_INDEPENDIENTE"
 
 setwd(dirFol)
 
 #DataBase structure
 
-datNam  <- "DataModel.csv"
+datNam <- "BASE_PROCESADA.csv"
 
 dataSet   <- read.csv(datNam,row.names=1)
 
 namsDataSet <- names(dataSet)
 
 
-inputs  <- 1:55   #inputs columns
-segme   <- 56      #split column
-output  <- 57     #output column
+inputs  <- 1:16  #inputs columns
+segme   <- 17   #split column
+output  <- 18   #output column
 
 
 #Creating the split factors

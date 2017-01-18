@@ -73,7 +73,9 @@ createFolders(dirFol,variety)
 
 #Descriptive Analysis
 
-descriptiveGraphics("All",dataSet,inputs = inputs,segme = segme,output = output,smooth=T,ylabel = "Rendimiento (kg/ha)",smoothInd = NULL,ghrp="box",res=80)
+descriptiveGraphics("All",dataSet,inputs = inputs,segme = segme,output = output,
+                    smooth=T,ylabel = "Rendimiento (kg/ha)",smoothInd = NULL,
+                    ghrp="box",res=80)
 
 #DataSets ProcesosF
 
@@ -85,18 +87,19 @@ lineaRegresionFun(variety,dirLocation=paste0(getwd(),"/"),ylabs="Yield (Kg/HA)")
 
 #MULTILAYER PERCEPTRON
 
-multilayerPerceptronFun("All",dirLocation=paste0(getwd(),"/"),nb.it=30,ylabs="Yield (Kg/HA)",pertuRelevance=T,ncores=3)
+multilayerPerceptronFun("All",dirLocation=paste0(getwd(),"/"),nb.it=30,
+                        ylabs="Yield (Kg/HA)",pertuRelevance=T,ncores=3)
 
 #RANDOM FOREST
 
-randomForestFun("All",nb.it=100,ncores = 22,saveWS=F)
+randomForestFun("All",nb.it=30,ncores = 3,saveWS=F)
 
 
 #CONDITIONAL FOREST; especify if you have categorical variables
 
-conditionalForestFun("All",nb.it=100, ncores= 22,saveWS=F)
+conditionalForestFun("All",nb.it=30, ncores= 3,saveWS=F)
 #GENERALIZED BOOSTED REGRESSION MODELING 
 
-boostingFun("All",nb.it=100,ncores=22,saveWS=F)
+boostingFun("All",nb.it=30,ncores=3,saveWS=F)
 
 
